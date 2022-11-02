@@ -1,0 +1,12 @@
+{
+    "loginPageURL": "login",
+    "registerPageURL": "register",
+    "allCategories": [
+        "All Categories",
+        "Biography",
+        "Fiction",
+        "Mystery",
+        "Fantasy",
+        "Romance"
+    ]
+}
