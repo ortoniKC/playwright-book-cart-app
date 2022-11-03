@@ -4,6 +4,12 @@ export default class BaseFunctions {
 
     constructor(private page: Page) { }
 
+    async goto(url: string) {
+        await this.page.goto(url, {
+            waitUntil: "domcontentloaded"
+        });
+    }
+
     async waitAndClick(locator: string) {
         const element = this.page.locator(locator);
         await element.waitFor({

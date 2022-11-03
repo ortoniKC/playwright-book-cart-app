@@ -25,25 +25,31 @@ export default class RegisterPage {
         regBtn: "button[color='primary']"
     }
 
+    async navigateToRegisterPage() {
+        await this.base.goto("register")
+    }
+
     // only for positive scenario
 
     async registerUser(firstname: string, lastname: string, userName: string,
         password: string, confirmPassword: string,
-        gender: gender) {
-        await this.page.fill(this.Elements.fName, firstname);
-        await this.page.fill(this.Elements.lname, lastname);
+        gender: string) {
+        await this.page.type(this.Elements.fName, firstname);
+        await this.page.type(this.Elements.lname, lastname);
         // this must be unique always
-        await this.page.fill(this.Elements.userName, userName);
-        await this.page.fill(this.Elements.password, password);
-        await this.page.fill(this.Elements.confirmPassword, confirmPassword);
-        if (gender.m) {
+        await this.page.type(this.Elements.userName, userName);
+        await this.page.type(this.Elements.password, password);
+        await this.page.type(this.Elements.confirmPassword, confirmPassword);
+        if (gender == "m") {
             await this.page.click(this.Elements.maleRadioBtn);
             await expect(this.page.locator(this.Elements.maleInput)).toBeChecked();
         } else {
             await this.page.click(this.Elements.femaleRadioBtn);
             await expect(this.page.locator(this.Elements.femaleInput)).toBeChecked();
         }
-        await this.base.navigateTo(this.Elements.regBtn);
+        const regBtn = this.page.locator(this.Elements.regBtn);
+        // await regBtn.waitFor({ state: "visible" });
+        await regBtn.click({ delay: 1000 });
     }
 
 }

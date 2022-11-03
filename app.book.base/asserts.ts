@@ -14,7 +14,7 @@ export default class Assert {
     }
 
     async assertURL(url: string) {
-        await expect(this.page).toHaveURL(`/.*${url}/`);
+        await expect(this.page).toHaveURL(url);
     }
 
     async assertURLContains(title: string) {

@@ -3,7 +3,10 @@ import { devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   testDir: './tests',
-  timeout: 30 * 1000,
+  testMatch: [
+    "tests/registerUser.test.ts"
+  ],
+  timeout: 1 * 30 * 1000, // 1 min
   expect: {
     timeout: 5000
   },
@@ -14,9 +17,10 @@ const config: PlaywrightTestConfig = {
     open: "on-failure"
   }]],
   use: {
+    headless: false,
     baseURL: "https://bookcart.azurewebsites.net/",
-    actionTimeout: 10,
-    trace: 'on-first-retry',
+    // actionTimeout: 2 * 60 * 1000,
+    trace: "retain-on-failure",
     video: "retain-on-failure",
     screenshot: "only-on-failure"
   },
