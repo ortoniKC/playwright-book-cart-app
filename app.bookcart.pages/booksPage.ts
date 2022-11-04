@@ -17,7 +17,7 @@ export default class BooksPage {
         price: "div.card-title +p",
         addToCartBtn: "//button[@color='primary']",
         bookCard: "mat-card",
-        snackBar: "simple-snack-bar"
+        snackBar: "//simple-snack-bar/span[1]"
 
     }
 
@@ -37,7 +37,7 @@ export default class BooksPage {
         await expect(toast).toHaveText("One Item added to cart");
     }
 
-    
+
 
 
 }

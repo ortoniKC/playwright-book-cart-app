@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 import BaseFunctions from "../app.book.base/baseFunctions";
 
 export default class HeaderPage {
@@ -31,7 +31,9 @@ export default class HeaderPage {
     }
 
     async getCartValue() {
-        await this.page.textContent(this.headerPageElements.cartValue)
+        // TODO: have to implement wait for text
+        await this.page.waitForTimeout(1000); // temp solution
+        return await this.page.textContent(this.headerPageElements.cartValue)
     }
 
     async clickLoginLink() {
@@ -43,10 +45,17 @@ export default class HeaderPage {
     }
 
     async clickOnMyOrder() {
+        await this.clickOnUserMenu();
         await this.base.waitAndClick(this.headerPageElements.myOrder)
     }
 
     async logoutUser() {
+        await this.clickOnUserMenu();
         await this.base.navigateTo(this.headerPageElements.logoutLink)
+    }
+
+    async verifyLoginSuccess() {
+        await expect(this.page.locator(this.headerPageElements.userMenu))
+            .toBeVisible();
     }
 }
