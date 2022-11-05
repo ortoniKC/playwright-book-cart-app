@@ -8,23 +8,25 @@ const config: PlaywrightTestConfig = {
     "tests/loginUser.test.ts",
     "tests/addProductToCart.test.ts"
   ],
-  timeout: 1 * 30 * 1000, // 1 min
+  timeout: 1 * 30 * 1000,
   expect: {
     timeout: 5000
   },
   fullyParallel: !true,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 2,
-  reporter: [["html", {
+  reporter: [["json", {
+    outputFile: "report.json"
+  }], ["html", {
     open: "on-failure"
   }]],
   use: {
     headless: false,
     baseURL: "https://bookcart.azurewebsites.net/",
     // actionTimeout: 2 * 60 * 1000,
-    trace: "retain-on-failure",
-    video: "retain-on-failure",
-    screenshot: "only-on-failure"
+    // trace: "on",
+    // video: "on",
+    screenshot: "on"
   },
   projects: [
     {
