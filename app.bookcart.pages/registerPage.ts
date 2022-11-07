@@ -37,7 +37,7 @@ export default class RegisterPage {
         await this.page.type(this.Elements.fName, firstname);
         await this.page.type(this.Elements.lname, lastname);
         // this must be unique always
-        await this.enterUserName(userName);
+        await this.enterUsername(userName);
         // await this.page.type(this.Elements.userName, userName);
         await this.page.type(this.Elements.password, password);
         await this.page.type(this.Elements.confirmPassword, confirmPassword);
@@ -53,15 +53,16 @@ export default class RegisterPage {
         await regBtn.click();
     }
 
-    async enterUserName(userName: string) {
+    async enterUsername(userName: string) {
         await this.page.type(this.Elements.userName, userName);
         const [response] = await Promise.all([
             this.page.waitForResponse(res => {
-                return res.url() == `https://bookcart.azurewebsites.net/api/user/validateUserName/${userName}`
-                    && res.status() == 200
+                return res.status() == 200
+                    &&
+                    res.url() == `https://bookcart.azurewebsites.net/api/user/validateUserName/${userName}`
             })
         ]);
         await response.finished();
     }
-
 }
+
