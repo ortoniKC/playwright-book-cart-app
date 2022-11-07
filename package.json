@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npx playwright install",
     "test": "npx playwright test",
     "report": "npx playwright show-report"
   },
