@@ -37,7 +37,8 @@ export default class RegisterPage {
         await this.page.type(this.Elements.fName, firstname);
         await this.page.type(this.Elements.lname, lastname);
         // this must be unique always
-        await this.page.type(this.Elements.userName, userName);
+        await this.enterUserName(userName);
+        // await this.page.type(this.Elements.userName, userName);
         await this.page.type(this.Elements.password, password);
         await this.page.type(this.Elements.confirmPassword, confirmPassword);
         if (gender == "m") {
@@ -49,7 +50,18 @@ export default class RegisterPage {
         }
         const regBtn = this.page.locator(this.Elements.regBtn);
         // await regBtn.waitFor({ state: "visible" });
-        await regBtn.click({ delay: 1000 });
+        await regBtn.click();
+    }
+
+    async enterUserName(userName: string) {
+        await this.page.type(this.Elements.userName, userName);
+        const [response] = await Promise.all([
+            this.page.waitForResponse(res => {
+                return res.url() == `https://bookcart.azurewebsites.net/api/user/validateUserName/${userName}`
+                    && res.status() == 200
+            })
+        ]);
+        await response.finished();
     }
 
 }
