@@ -7,5 +7,6 @@
     - Helper functions
     - Data maintenance
     - How to handle dynamic data
+    - [Circle CI integration](https://youtu.be/MHjpsvXekmM)
 
-### [YouTube Playlist](https://youtube.com/playlist?list=PL699Xf-_ilW7--f_NeKFz5V2Ll8thrrcr)    
+### [YouTube Playlist](https://youtube.com/playlist?list=PL699Xf-_ilW7--f_NeKFz5V2Ll8thrrcr)
