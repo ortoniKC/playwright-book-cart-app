@@ -23,7 +23,7 @@ test("Register User", async ({ page }) => {
     });
 
     await test.step("Confirm register is success", async () => {
-        await assert.assertURL("login")
+        await assert.assertURL("login1")
     });
 
 })
