@@ -3,6 +3,7 @@ fs.readFile("result.json", (err, data) => {
     if (err) throw Error(
         "File not found!"
     )
+    jQuery("#test-title .column").empty();
     const jsonData = JSON.parse(data);
     const suites = jsonData.suites;
     const suitesLen = suites.length;

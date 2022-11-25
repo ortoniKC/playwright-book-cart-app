@@ -1,0 +1,126 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "Y:/code/book-cart-app-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "Y:/code/book-cart-app-test/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "tests/registerUser.test.ts",
+          "tests/loginUser.test.ts",
+          "tests/addProductToCart.test.ts",
+          "tests/flipkart.test.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "on-failure"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "Y:\\code\\book-cart-app-test\\playwright.config.ts",
+    "rootDir": "Y:/code/book-cart-app-test/tests",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.27.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "flipkart.test.ts",
+      "file": "flipkart.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Flipkart - search and add a product to the cart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 32458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Goto app & close the popup",
+                      "duration": 23199
+                    },
+                    {
+                      "title": "search for some product",
+                      "duration": 1894
+                    },
+                    {
+                      "title": "add the product to the cart",
+                      "duration": 6567
+                    }
+                  ],
+                  "startTime": "2022-11-24T18:05:36.987Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "Y:\\code\\book-cart-app-test\\test-results\\flipkart-Flipkart---search-and-add-a-product-to-the-cart-chromium\\test-finished-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "Y:\\code\\book-cart-app-test\\test-results\\flipkart-Flipkart---search-and-add-a-product-to-the-cart-chromium\\test-finished-2.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6811cc03f30cceee9c9c-1f14f1f5d13445db915b",
+          "file": "flipkart.test.ts",
+          "line": 6,
+          "column": 6
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
