@@ -6,9 +6,10 @@ const config: PlaywrightTestConfig = {
   testMatch: [
     "tests/registerUser.test.ts",
     "tests/loginUser.test.ts",
-    "tests/addProductToCart.test.ts"
+    "tests/addProductToCart.test.ts",
+    "tests/flipkart.test.ts"
   ],
-  timeout: 1 * 30 * 1000,
+  timeout: 1 * 60 * 1000,
   expect: {
     timeout: 5000
   },
@@ -36,12 +37,12 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    }
+    // {
+    //   name: 'firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //   },
+    // }
   ]
 };
 

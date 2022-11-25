@@ -24,4 +24,5 @@ export default class BaseFunctions {
             this.page.click(link)
         ])
     }
+
 }
