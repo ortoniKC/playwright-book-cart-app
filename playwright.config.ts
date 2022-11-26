@@ -2,12 +2,14 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testDir: './tests',
+  // testDir: './tests',
   testMatch: [
-    "tests/registerUser.test.ts",
-    "tests/loginUser.test.ts",
-    "tests/addProductToCart.test.ts",
-    "tests/flipkart.test.ts"
+    // "lighthouse/unauth.test.ts",
+    "lighthouse/auth.test.ts"
+    // "tests/registerUser.test.ts",
+    // "tests/loginUser.test.ts",
+    // "tests/addProductToCart.test.ts",
+    // "tests/flipkart.test.ts"
   ],
   timeout: 1 * 60 * 1000,
   expect: {
