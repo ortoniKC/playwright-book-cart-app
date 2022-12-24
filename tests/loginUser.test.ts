@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import HeaderPage from "../app.bookcart.pages/headerPage";
 import LoginPage from "../app.bookcart.pages/loginPage";
+const CryptoJS = require("crypto-js")
 
 import * as data from "../utils/testdata/loginUser.json";
 
@@ -37,7 +38,7 @@ test.describe("Login scenario", async () => {
 
     })
 
-    test("Valid login & logout", async ({ page }) => {
+    test.only("Valid login & logout", async ({ page }) => {
         const login = new LoginPage(page);
         const header = new HeaderPage(page);
 
@@ -45,7 +46,8 @@ test.describe("Login scenario", async () => {
             await login.navigateToLoginPage();
         })
         await test.step("login with valid credentials", async () => {
-            await login.loginUser(data.userName, data.password);
+            await login.loginUser(getDecryptedValue(data.userName),
+                getDecryptedValue(data.password));
             await header.verifyLoginSuccess();
         })
         await test.step("Logout user", async () => {
@@ -53,3 +55,8 @@ test.describe("Login scenario", async () => {
         })
     })
 })
+
+function getDecryptedValue(data: string) {
+    var decrypted = CryptoJS.AES.decrypt(data, process.env.SECRET_KEY);
+    return decrypted.toString(CryptoJS.enc.Utf8);
+}
