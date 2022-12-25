@@ -8,6 +8,8 @@ jobs:
       - checkout
       - run:
           name: Download dependency
+          environment:
+            SECRET_KEY: SECRET_KEY 
           command: npm ci
       - run:
           name: Run tests

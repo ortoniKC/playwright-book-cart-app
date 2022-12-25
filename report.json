@@ -1,0 +1,137 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "Y:/code/book-cart-app-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "Y:/code/book-cart-app-test",
+        "testIgnore": [],
+        "testMatch": [
+          "tests/loginUser.test.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "on-failure"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "Y:\\code\\book-cart-app-test\\playwright.config.ts",
+    "rootDir": "Y:/code/book-cart-app-test",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.28.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\loginUser.test.ts",
+      "file": "tests/loginUser.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Login scenario",
+          "file": "tests/loginUser.test.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Valid login & logout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 3795,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to login page",
+                          "duration": 982
+                        },
+                        {
+                          "title": "login with valid credentials",
+                          "duration": 1261
+                        },
+                        {
+                          "title": "Logout user",
+                          "duration": 660
+                        }
+                      ],
+                      "startTime": "2022-12-25T17:20:22.476Z",
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "Y:\\code\\book-cart-app-test\\test-results\\tests-loginUser-Login-scenario-Valid-login-logout-chromium\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "Y:\\code\\book-cart-app-test\\test-results\\tests-loginUser-Login-scenario-Valid-login-logout-chromium\\trace.zip"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "Y:\\code\\book-cart-app-test\\test-results\\tests-loginUser-Login-scenario-Valid-login-logout-chromium\\test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05ae93d38d87a567ceed-b54a32272d2d9115c844",
+              "file": "tests/loginUser.test.ts",
+              "line": 41,
+              "column": 10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
