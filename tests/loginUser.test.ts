@@ -7,7 +7,7 @@ import * as data from "../utils/testdata/loginUser.json";
 
 test.describe("Login scenario", async () => {
 
-    test("Invalid login", async ({ page }) => {
+    test.only("Invalid login", async ({ page }) => {
 
         const login = new LoginPage(page);
 
@@ -38,7 +38,7 @@ test.describe("Login scenario", async () => {
 
     })
 
-    test.only("Valid login & logout", async ({ page }) => {
+    test("Valid login & logout", async ({ page }) => {
         const login = new LoginPage(page);
         const header = new HeaderPage(page);
 
