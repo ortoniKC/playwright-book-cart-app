@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 import Assert from "../app.book.base/asserts";
 import BaseFunctions from "../app.book.base/baseFunctions";
 
@@ -17,6 +17,7 @@ export default class LoginPage {
 
     async navigateToLoginPage() {
         await this.base.goto("/login");
+        await expect(this.page).toHaveTitle("BookCart");
     }
     async enterUserName(user: string) {
         await this.page.getByLabel(this.Elements.userInput).fill(user);

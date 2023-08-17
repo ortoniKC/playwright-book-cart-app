@@ -9,6 +9,8 @@ test.describe("Login scenario", async () => {
 
     test.only("Invalid login", async ({ page }) => {
 
+        
+
         const login = new LoginPage(page);
 
         await test.step("Navigate to login page", async () => {
@@ -34,6 +36,7 @@ test.describe("Login scenario", async () => {
             const msg = login.getErrorMessage();
             await expect(msg).toBeVisible();
             await expect(msg).toHaveText(data.errorMsg);
+            await expect(page).toHaveTitle("BookCart");
         })
 
     })
@@ -46,8 +49,7 @@ test.describe("Login scenario", async () => {
             await login.navigateToLoginPage();
         })
         await test.step("login with valid credentials", async () => {
-            await login.loginUser(getDecryptedValue(data.userName),
-                getDecryptedValue(data.password));
+            await login.loginUser("ortoni", "Pass1234$");
             await header.verifyLoginSuccess();
         })
         await test.step("Logout user", async () => {

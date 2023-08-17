@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npx playwright install",
     "test": "npx playwright test",
     "report": "npx playwright show-report"
   },
@@ -14,11 +13,10 @@
   "dependencies": {
     "crypto-js": "^4.1.1",
     "lighthouse": "^9.6.8",
-    "playwright": "^1.28.1",
     "playwright-lighthouse": "^2.2.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.28.1",
+    "@playwright/test": "1.32.0",
     "xlsx": "^0.18.5"
   }
 }
